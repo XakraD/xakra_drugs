@@ -11,6 +11,13 @@ With this script you will be able to add drug effects to your items:
 
 Images of the items in the 'img' folder.
 
+In the Config file you can change:
+- Name of drug items.
+- Limit of joints until you are knocked to the ground and the time to recover.
+- Effects time.
+- The opium texts.
+- List i quantity of peds that will appear in the drugs of the mushroom and opium.
+
 ## Instructions to incorporate script
 - Copy the script into a folder (to choose) from the 'resources' folder.
 - Add 'ensure xakra_drugs' in the 'Resources.cfg' document
