@@ -1,7 +1,7 @@
 # xakra_drugs
 ## Requirements
-vorp_core
-vorp_inventory
+- [vorp_core](https://github.com/VORPCORE/vorp-core-lua)
+- [vorp_inventory](https://github.com/VORPCORE/vorp_inventory-lua)
 
 ## Description
 With this script you will be able to add drug effects to your items:
