@@ -37,8 +37,8 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent('xakra_waterpump:JointAnim')
-AddEventHandler('xakra_waterpump:JointAnim', function()
+RegisterNetEvent('xakra_drugs:JointAnim')
+AddEventHandler('xakra_drugs:JointAnim', function()
 	local cigarette = CreateObject(GetHashKey('p_cigarette_dynamic_01x'), GetEntityCoords(PlayerPedId()), true, true, true)
     local righthand = GetEntityBoneIndexByName(PlayerPedId(), "SKEL_R_Finger13")
     local mouth = GetEntityBoneIndexByName(PlayerPedId(), "skel_head")
@@ -93,8 +93,8 @@ AddEventHandler('xakra_waterpump:JointAnim', function()
 end)
 
 --########################### OPIUM ###########################
-RegisterNetEvent('xakra_waterpump:Opium')
-AddEventHandler('xakra_waterpump:Opium', function()
+RegisterNetEvent('xakra_drugs:Opium')
+AddEventHandler('xakra_drugs:Opium', function()
 	local pipe = CreateObject(GetHashKey('P_PIPE01X'), GetEntityCoords(PlayerPedId()), true, true, true)
     local righthand = GetEntityBoneIndexByName(PlayerPedId(), "SKEL_R_Finger13")
     AttachEntityToEntity(pipe, PlayerPedId(), righthand, 0.005, -0.045, 0.0, -170.0, 10.0, -15.0, true, true, false, true, 1, true)
@@ -203,8 +203,8 @@ local SkyEffects = {
 	"SkyTL_2100_04Storm_nofade",
 }
 
-RegisterNetEvent('xakra_waterpump:Mushroom')
-AddEventHandler('xakra_waterpump:Mushroom', function()
+RegisterNetEvent('xakra_drugs:Mushroom')
+AddEventHandler('xakra_drugs:Mushroom', function()
 	mushroom = CreateObject(GetHashKey('s_amedmush'), GetEntityCoords(PlayerPedId()), true, true, true)
     local righthand = GetEntityBoneIndexByName(PlayerPedId(), "SKEL_R_Finger13")
     AttachEntityToEntity(mushroom, PlayerPedId(), righthand, 0.005, -0.045, 0.0, -170.0, 10.0, -15.0, true, true, false, true, 1, true)
