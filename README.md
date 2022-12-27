@@ -9,6 +9,8 @@ With this script you will be able to add drug effects to your items:
 - Opium: It would be necessary to have a pipe to consume the opium. Our character will smoke the pipe and start to see humans and giant animals for a while.
 - Joint: Our character will smoke a joint, the vorp_metabolism hunger will go down a bit, and for a short time he will have a screen effect of a slightly closed eye. It will recover the core of life in gold. If he smokes more than the joints that you indicate in the configuration, the character will fall asleep on the ground without being able to move.
 
+Images of the items in the 'img' folder.
+
 ## Instructions to incorporate script
 - Copy the script into a folder (to choose) from the 'resources' folder.
 - Add 'ensure xakra_drugs' in the 'Resources.cfg' document
