@@ -145,11 +145,6 @@ function CreateOpiumPed(model)
 	SetPedScale(ped, 5.0)
 end
 
-RegisterCommand('test', function(source, args, rawCommand)
-	local model = Config.OpiumpPeds[math.random(#Config.OpiumpPeds)]
-	CreateOpiumPed(model)
-end)
-
 --########################### MUSHROOM ###########################
 local cam, mushroom
 local SkyEffects = {
