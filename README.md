@@ -14,4 +14,4 @@ With this script you will be able to add drug effects to your items:
 - Add 'ensure xakra_drugs' in the 'Resources.cfg' document
 - Create the necessary items in your database or change the names in the 'config.lua' file.
 
-Video: https://studio.youtube.com/video/W9SlGFGByBQ/edit
+Video: https://youtu.be/W9SlGFGByBQ
