@@ -218,8 +218,9 @@ AddEventHandler('xakra_drugs:Mushroom', function()
 
 	Citizen.InvokeNative(0x449995EA846D3FC2, -90.0)	-- SetGameplayCamInitialPitch
 	Wait(500)
-	local cam_coords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.0, 100.0)
-	cam = CreateCamWithParams('DEFAULT_SCRIPTED_CAMERA', cam_coords, -90.0, 0.0, 0.0, 60.00, false, 0)
+	local pcoords = GetEntityCoords(PlayerPedId())
+	local coords = vector3(pcoords.x, pcoords.y, pcoords.z + 100)
+	cam = CreateCamWithParams('DEFAULT_SCRIPTED_CAMERA', coords, -90.0, 0.0, 0.0, 60.00, false, 0)
 	SetCamActive(cam, true)
 	RenderScriptCams(true, true, 15000, 1, 0)
 	Wait(20000)
@@ -237,11 +238,13 @@ AddEventHandler('xakra_drugs:Mushroom', function()
 
 	for i = 0, Config.MushroomQuantityPeds do
 		local model = Config.MushroomPeds[math.random(#Config.MushroomPeds)]
-		CreateMushroomPed(model, cam_coords)
+		CreateMushroomPed(model, coords)
 	end
 
-	local ped = peds[math.random(#peds)]
-	RenderScriptCams(false, true, 10000, 1, 0)
+	if DoesCamExist(cam) then
+		RenderScriptCams(false, true, 10000, 1, 0)
+		DestroyCam(cam, true)
+	end
 	Wait(15000)
 
 	ClearPedTasks(PlayerPedId())
@@ -259,12 +262,12 @@ AddEventHandler('xakra_drugs:Mushroom', function()
 	AnimpostfxStop('PlayerRPGCore')
 end)
 
-function CreateMushroomPed(model, cam_coords)
+function CreateMushroomPed(model, coords)
 
-	local x = cam_coords.x + math.random(-10, 10)
-	local y = cam_coords.y + math.random(-10, 10)
+	local x = coords.x + math.random(-10, 10)
+	local y = coords.y + math.random(-10, 10)
 
-	local sky_coords = vector4(x, y, cam_coords.z + 2.0, math.random(360) + 0.0)
+	local sky_coords = vector4(x, y, coords.z + 2.0, math.random(360) + 0.0)
 
 	LoadModel(model)
     local ped = CreatePed(model, sky_coords, false, false, true, true)        
@@ -292,7 +295,9 @@ AddEventHandler('onResourceStop', function (resourceName)
 
 	AnimpostfxStop('PlayerRPGCore')
 
-	DestroyAllCams()
+	if DoesCamExist(cam) then
+		DestroyCam(cam, true)
+	end
 
 	Citizen.InvokeNative(0x4FD80C3DD84B817B, PlayerPedId())	-- ClearPedDesiredLocoForModel
 	Citizen.InvokeNative(0x58F7DB5BD8FA2288, PlayerPedId())	-- ClearPedDesiredLocoMotionType
